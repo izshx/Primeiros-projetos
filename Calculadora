@@ -1,0 +1,100 @@
+//Classe principal
+package calculadora;
+import java.util.Scanner;
+
+public class TestCalc {
+	private static Scanner scan;
+	
+	public static void main(String[] args) {
+		 
+		scan = new Scanner(System.in);
+		//Instância do objeto Calculadora
+		Calculadora calc = new Calculadora();
+		
+		//Entrada da escolha da operação matemática
+		System.out.println("Digite a operação somar, subtrair, dividir ou multiplicar");
+		String escolha = scan.nextLine();
+		
+		//Entrada do primeiro valor numérico
+		System.out.println("Digite o primeiro número");
+		double num1 = scan.nextDouble();
+		
+		//Entrada do segundo valor numérico
+		System.out.println("Digite o segundo número");
+		double num2 = scan.nextDouble();
+		
+		//Decisão a ser tomada para efetuar a operação e as chamadas dos métodos
+		if (escolha.equalsIgnoreCase("somar")) {
+			calc.somar(num1, num2);
+			System.out.println("O resultado é: " + calc.getResult());
+		}
+
+		else if (escolha.equalsIgnoreCase("subtrair")) {
+			calc.subtrair(num1, num2);
+			System.out.println("O resultado é: " + calc.getResult());
+		}
+		
+		else if (escolha.equalsIgnoreCase("dividir")) {
+			calc.dividir(num1, num2);
+			System.out.println("O resultado é: " + calc.getResult());
+		}
+		
+		else if (escolha.equalsIgnoreCase("multiplicar")) {
+			calc.multiplicar(num1, num2);
+			System.out.println("O resultado é: " + calc.getResult());
+		}
+		
+		else {
+			System.out.println("A operação digitada está errada");
+		}
+
+	}
+
+}
+
+//Classe Calculadora
+package calculadora;
+
+public class Calculadora {
+	
+	private double num1;
+	private double num2;
+	private double result;
+	
+	//Método para somar
+	public void somar(double num1, double num2) {
+		this.num1 = num1;
+		this.num2 = num2;
+		this.result = this.num1 + this.num2;
+	}
+	
+	//Método para subtrair
+	public void subtrair(double num1, double num2) {
+		this.num1 = num1;
+		this.num2 = num2;
+		this.result = this.num1 - this.num2;
+	}
+	
+	//Método para dividir
+	public void dividir(double num1, double num2) {
+		this.num1 = num1;
+		this.num2 = num2;
+		this.result = this.num1 / this.num2;
+	}
+	
+	//Método para multiplicar
+	public void multiplicar(double num1, double num2) {
+		this.num1 = num1;
+		this.num2 = num2;
+		this.result = this.num1 * this.num2;
+	}
+	
+	//Método para obter e retornar o valor
+	public double getResult() {
+		return this.result;
+	}
+	
+
+}
+
+
